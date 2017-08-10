@@ -1,0 +1,58 @@
+##########################################
+##                                      ##
+## GMdotnet                             ##
+## Vagrant Multi Machine Digital Ocean  ##
+## Version 0.0.1                        ##
+##                                      ##
+## Config file                          ##
+##########################################
+
+gmdotnet:
+  - host:
+      # enable or not the machine
+      # if you not enable the machine, it will not be created
+      enable: yes
+      vagrantbox_name: gmweb
+      hostname: gmweb.vagrant
+      digital_ocean:
+        ssh:
+          key_path: ~/.ssh/id_rsa
+          key_name: Your_DO_Key # name of ssh key configured in Digital Ocean
+        token: <your DO API token>
+        image:  debian-8-x64 # check list with vagrant digitalocean-list images $DIGITAL_OCEAN_TOKEN
+        region: fra1 # check list with vagrant digitalocean-list regions $DIGITAL_OCEAN_TOKEN
+        size: 512mb # check list with vagrant digitalocean-list sizes $DIGITAL_OCEAN_TOKEN
+        enable_ipv6: no
+        enable_private_networking: yes
+        backups_enabled: no
+      provision:
+        ansible:
+          enable: no
+          playbook_path: "ansible/playbook.yml"
+        script:
+          enable: no
+          path: "script/backup_database.sh"
+      plugin:
+        hostsupdater:
+          enable: no    # enable hostsupdater plugin
+          permanent: no  # your changes to /etc/hosts will be permanent
+          aliases: ["alias.gmweb", "alias2.gmweb"]  # alias for same ip in your file hosts, leave blank for no aliases
+      # RSYNC FOLDERS
+      rsync:
+      #    - folder:
+      #        host_folder: /mnt/extra/rsync
+      #        vagrant_folder: /mnt/extra/rsync
+      #        options:
+      #            - "-a"
+      #            - "-r"
+      #            - "-v"
+      #            - "-z"
+      #            - "--delete"
+      #    - folder:
+      #        host_folder: /mnt/extra/rsync2
+      #        vagrant_folder: /mnt/extra/rsync2
+      #        options:
+      #            - "-a"
+      #            - "-r"
+      #            - "-v"
+      #            - "-z"
