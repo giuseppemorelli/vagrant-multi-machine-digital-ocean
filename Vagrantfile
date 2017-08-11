@@ -23,14 +23,6 @@ Vagrant.configure("2") do |config|
             config.vm.define host['vagrantbox_name'] do |vmhost|
                 # hostname
                 vmhost.vm.hostname = host['hostname']
-                # box name
-                vmhost.vm.box = host['box']['name']
-                # box version
-                if host['box']['version'] != nil
-                    vmhost.vm.box_version = host['box']['version']
-                end
-                # check_update
-                vmhost.vm.box_check_update = host['box']['check_update']
 
                 # Hostsupdater plugin
                 if host['plugin']['hostsupdater']['enable'] == true
