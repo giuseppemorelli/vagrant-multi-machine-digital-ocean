@@ -16,12 +16,14 @@ This is a Multi Machine system for vagrant with Digital Ocean provider.
 ## Requirements
 - virtualbox 5.x
 - vagrant >1.8.4
+- vagrant digital ocean provider plugin
+  install with `vagrant plugin install vagrant-digitalocean`
 - (optional)vagrant HostsUpdater plugin: https://github.com/cogitatio/vagrant-hostsupdater
   install with `vagrant plugin install vagrant-hostsupdater`
 - (in case of error of shared folder mount errors) vagrant vagrant-vbguest plugin (install with the command `vagrant plugin install vagrant-vbguest`)
 
 ## How to use
-- download https://github.com/gmdotnet/vagrant-multi-machine-virtualbox/archive/master.zip
+- download https://github.com/gmdotnet/vagrant-multi-machine-digital-ocean/archive/master.zip
 - unzip on your favorite work folder
 - rename `config/config.yaml.sample` in `config/config.yaml`
 - change settings in `config/config.yaml`
